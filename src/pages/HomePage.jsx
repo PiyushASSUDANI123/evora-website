@@ -47,6 +47,11 @@ const HomePage = () => {
   const [showAddReview, setShowAddReview] = useState(false);
   const [promotionalBanner, setPromotionalBanner] = useState(null);
 
+  // New Review Form State
+  const [newReviewName, setNewReviewName] = useState('');
+  const [newReviewRating, setNewReviewRating] = useState(5);
+  const [newReviewText, setNewReviewText] = useState('');
+
   // Mocking database fetch for showcase
   useEffect(() => {
     const fetchMenuFromDatabase = async () => {
@@ -67,12 +72,35 @@ const HomePage = () => {
         { id: 3, name: 'Pro', price: '₹3,999', period: '/ month', isPopular: false, features: ['3 Reels / Week', 'Creative Concept & Script', 'In-Store + Lifestyle Shoots', 'Story Mentions', 'Priority Support'] },
       ]);
 
-      // Simulate fetching reviews from database
-      setReviews([
-        { id: 1, name: 'Kavya S.', initial: 'K', stars: 5, excerpt: '"Best cold cocoa in Balotra! Always fresh and so tasty."', fullText: "I've been visiting Evora Balotra for months now, and their cold cocoa is hands down the best in town. The ingredients are always fresh and it tastes amazing every single time." },
-        { id: 2, name: 'Rohan M.', initial: 'R', stars: 5, excerpt: '"Chatpata mix is my go-to snack. Perfect taste and always fresh."', fullText: "The chatpata mix is my absolute favorite. It has the perfect balance of spices, and it's always served fresh. Great place to hang out with friends!" },
-        { id: 3, name: 'Pooja D.', initial: 'P', stars: 5, excerpt: '"Their fruit chaat is amazing! Fresh, healthy and super delicious."', fullText: "Highly recommend the fruit chaat. It's incredibly fresh, very healthy, and they use a great variety of fruits. The staff is also very friendly and welcoming." },
-      ]);
+      // Fetch approved reviews from database
+      const fetchReviews = async () => {
+        try {
+          const res = await fetch('http://localhost:5000/api/reviews/approved');
+          const data = await res.json();
+          // Map to match frontend structure if needed, or use directly
+          const formattedReviews = data.map(r => ({
+            id: r.id,
+            name: r.name,
+            initial: r.name.charAt(0).toUpperCase(),
+            stars: r.rating,
+            excerpt: `"${r.text.substring(0, 50)}..."`,
+            fullText: r.text
+          }));
+          
+          if(formattedReviews.length > 0) {
+            setReviews(formattedReviews);
+          } else {
+            // Fallback mock data if DB is empty
+            setReviews([
+              { id: 1, name: 'Kavya S.', initial: 'K', stars: 5, excerpt: '"Best cold cocoa in Balotra! Always fresh and so tasty."', fullText: "I've been visiting Evora Balotra for months now, and their cold cocoa is hands down the best in town. The ingredients are always fresh and it tastes amazing every single time." },
+              { id: 2, name: 'Rohan M.', initial: 'R', stars: 5, excerpt: '"Chatpata mix is my go-to snack. Perfect taste and always fresh."', fullText: "The chatpata mix is my absolute favorite. It has the perfect balance of spices, and it's always served fresh. Great place to hang out with friends!" },
+            ]);
+          }
+        } catch (error) {
+          console.error("Error fetching reviews", error);
+        }
+      };
+      fetchReviews();
 
       // Simulate fetching active promotional banner from database
       const fetchBanner = () => {
@@ -97,10 +125,31 @@ const HomePage = () => {
     sessionStorage.setItem('evoraBannerDismissed', 'true');
   };
 
-  const handleReviewSubmit = (e) => {
+  const handleReviewSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you! Your review has been submitted to the database and is pending admin approval.");
-    setShowAddReview(false);
+    try {
+      const res = await fetch('http://localhost:5000/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: newReviewName,
+          rating: newReviewRating,
+          text: newReviewText
+        })
+      });
+      if (res.ok) {
+        alert("Thank you! Your review has been submitted to the database and is pending admin approval.");
+        setShowAddReview(false);
+        setNewReviewName('');
+        setNewReviewRating(5);
+        setNewReviewText('');
+      } else {
+        alert("Error submitting review");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting review. Is backend running?");
+    }
   };
 
   const getBadgeIcon = (type) => {
@@ -735,19 +784,19 @@ const HomePage = () => {
             <form onSubmit={handleReviewSubmit}>
               <div style={{ marginBottom: '1rem' }}>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Your Name</label>
-                <input type="text" required style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none' }} placeholder="e.g. Rahul S." />
+                <input type="text" required value={newReviewName} onChange={e => setNewReviewName(e.target.value)} style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none' }} placeholder="e.g. Rahul S." />
               </div>
               <div style={{ marginBottom: '1rem' }}>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Rating</label>
                 <div style={{ display: 'flex', gap: '5px' }}>
                   {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} size={24} fill="#f59e0b" color="#f59e0b" style={{ cursor: 'pointer' }} />
+                    <Star key={star} onClick={() => setNewReviewRating(star)} size={24} fill={star <= newReviewRating ? "#f59e0b" : "none"} color={star <= newReviewRating ? "#f59e0b" : "#d1d5db"} style={{ cursor: 'pointer' }} />
                   ))}
                 </div>
               </div>
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Your Review</label>
-                <textarea required rows="4" style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none', resize: 'none' }} placeholder="What did you like the most?"></textarea>
+                <textarea required value={newReviewText} onChange={e => setNewReviewText(e.target.value)} rows="4" style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none', resize: 'none' }} placeholder="What did you like the most?"></textarea>
               </div>
               <button type="submit" style={{ width: '100%', background: '#4a5d4e', color: 'white', border: 'none', padding: '1rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
                 Submit Review
