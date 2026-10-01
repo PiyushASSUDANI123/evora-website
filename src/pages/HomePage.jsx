@@ -355,28 +355,33 @@ const HomePage = () => {
       </section>
 
       {/* Why Evora Section */}
-      <section style={{ padding: '6rem 0', background: '#FCFAF7', position: 'relative' }}>
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '4rem' }}>
+      <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
+        {/* Top Right Leaf */}
+        <div style={{ position: 'absolute', top: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={trLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken', transform: 'rotate(-45deg) translate(20%, -20%)' }} />
+        </div>
+
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '3rem', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
-          <div style={{ flex: '1', maxWidth: '500px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>WHY EVORA</span>
-              <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+          <div style={{ flex: '1.2', maxWidth: '420px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
+              <span style={{ fontSize: '0.75rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>WHY EVORA</span>
+              <span style={{ height: '1px', width: '35px', background: '#fca5a5' }}></span>
             </div>
-            <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '3rem', fontWeight: 600, lineHeight: 1.05, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1rem', letterSpacing: '-1px' }}>
               More Than<br />
               <span style={{ color: '#D36777' }}>Just Snacks.</span>
             </h2>
-            <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif" }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.5, color: '#6b7280', marginBottom: '1.5rem', fontFamily: "'Playfair Display', serif" }}>
               It's about fresh ingredients, refreshing flavours and those little happy moments — every single day.
             </p>
-            <Link to="/about" style={{ background: '#4a5d4e', color: 'white', padding: '1rem 2.5rem', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', textDecoration: 'none', transition: 'all 0.3s' }}>
-              Know Our Story <ArrowRight size={18} strokeWidth={2} />
+            <Link to="/about" style={{ background: '#4a5d4e', color: 'white', padding: '0.9rem 2.2rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s' }}>
+              Know Our Story <ArrowRight size={16} strokeWidth={2} />
             </Link>
           </div>
           
           {/* Right Side Icons */}
-          <div style={{ flex: '1.5', display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+          <div style={{ flex: '2', display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
             {[
               { icon: <Leaf size={24} strokeWidth={1} color="#4b5563"/>, title: 'Fresh Ingredients', sub: 'Quality ingredients, made fresh daily.' },
               { icon: <CupIcon />, title: 'Refreshing Beverages', sub: 'Chilled cocoa, coconut milk and more.' },
@@ -384,13 +389,13 @@ const HomePage = () => {
               { icon: <Heart size={24} strokeWidth={1} color="#4b5563"/>, title: 'Made with Love', sub: 'A local favourite in Balotra.' }
             ].map((item, idx) => (
               <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: '1' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', border: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                  <div style={{ transform: 'scale(1.3)', display: 'flex', color: '#4b5563' }}>
+                <div style={{ width: '70px', height: '70px', borderRadius: '50%', border: '1px solid #d1d5db', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <div style={{ transform: 'scale(1.1)', display: 'flex', color: '#4b5563' }}>
                     {item.icon}
                   </div>
                 </div>
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#4b5563', fontFamily: "'Playfair Display', serif", marginBottom: '0.5rem' }}>{item.title}</h4>
-                <p style={{ fontSize: '0.85rem', color: '#9ca3af', lineHeight: 1.5, padding: '0 0.2rem' }}>{item.sub}</p>
+                <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: '#374151', fontFamily: "'Playfair Display', serif", marginBottom: '0.4rem' }}>{item.title}</h4>
+                <p style={{ fontSize: '0.8rem', color: '#9ca3af', lineHeight: 1.4, padding: '0 0.1rem', margin: 0 }}>{item.sub}</p>
               </div>
             ))}
           </div>
@@ -398,96 +403,101 @@ const HomePage = () => {
       </section>
 
       {/* Our Story Section */}
-      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7' }}>
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto' }}>
-          <div style={{ background: '#FFF4F5', borderRadius: '30px', padding: '0', display: 'flex', alignItems: 'stretch', overflow: 'hidden' }}>
+      <section style={{ padding: '3rem 0 2rem 0', background: '#FCFAF7', position: 'relative' }}>
+        {/* Middle Left Leaf */}
+        <div style={{ position: 'absolute', top: '20%', left: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={leafImg} alt="" style={{ height: '250px', objectFit: 'contain', mixBlendMode: 'darken', transform: 'translateX(-40%)' }} />
+        </div>
+
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <div style={{ background: '#FFF4F5', borderRadius: '25px', display: 'flex', alignItems: 'center', position: 'relative', marginLeft: '-4rem' }}>
             {/* Left Side */}
-            <div style={{ flex: '1', padding: '5rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>OUR STORY</span>
-                <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+            <div style={{ flex: '1', padding: '3.5rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
+                <span style={{ fontSize: '0.75rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>OUR STORY</span>
+                <span style={{ height: '1px', width: '35px', background: '#fca5a5' }}></span>
               </div>
-              <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '3rem', fontWeight: 600, lineHeight: 1.05, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1rem', letterSpacing: '-1px' }}>
                 A Little Place<br />
                 <span style={{ color: '#D36777' }}>For Good Moments.</span>
               </h2>
-              <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif", maxWidth: '450px' }}>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2rem', fontFamily: "'Playfair Display', serif", maxWidth: '400px' }}>
                 Evora Balotra started with a simple idea — to bring refreshing drinks and flavourful snacks to our city. From chilled cocoa and coconut milk to chatpata bowls and fresh fruit chaat, everything here is made to add a little joy to your day.
               </p>
               <div>
-                <Link to="/about" style={{ background: 'transparent', border: '1px solid #3e5c46', color: '#3e5c46', padding: '1rem 2.5rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', textDecoration: 'none', transition: 'all 0.3s' }}>
-                  Read More <ArrowRight size={18} strokeWidth={2} />
+                <Link to="/about" style={{ background: 'transparent', border: '1px solid #3e5c46', color: '#3e5c46', padding: '0.9rem 2.2rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s' }}>
+                  Read More <ArrowRight size={16} strokeWidth={2} />
                 </Link>
               </div>
             </div>
             
-            {/* Right Side Composite Image */}
-            <div style={{ flex: '1.2' }}>
-              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'darken' }} />
+            {/* Right Side Composite Image (Popping Out) */}
+            <div style={{ flex: '1.2', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+              <img src={storyRight} alt="Our Story" style={{ width: '110%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginTop: '-4rem', marginBottom: '-2rem', marginRight: '-2rem' }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Visit Us Section */}
-      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7', position: 'relative' }}>
+      <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
-        {/* Decorative Leaves */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={blLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        {/* Bottom Leaves */}
+        <div style={{ position: 'absolute', bottom: '-20px', left: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={blLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken', transform: 'translate(-20%, 20%)' }} />
         </div>
-        <div style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={brLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', bottom: '-20px', right: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={brLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken', transform: 'translate(20%, 20%)' }} />
         </div>
 
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '6rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
-          <div style={{ flex: '1' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>VISIT US</span>
-              <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+          <div style={{ flex: '0.9', paddingTop: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
+              <span style={{ fontSize: '0.75rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>VISIT US</span>
+              <span style={{ height: '1px', width: '35px', background: '#fca5a5' }}></span>
             </div>
-            <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '3rem', fontWeight: 600, lineHeight: 1.05, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1rem', letterSpacing: '-1px' }}>
               Come Say Hi<br />
               <span style={{ color: '#D36777' }}>At Our Stall.</span>
             </h2>
-            <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '3rem', fontFamily: "'Playfair Display', serif" }}>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.5, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif" }}>
               Enjoy your favourite chilled drinks and chatpata snacks at Evora Balotra.
             </p>
             
-            <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '3rem' }}>
-              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
-                <MapPin color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+            <div style={{ display: 'flex', gap: '1.2rem', marginBottom: '2.5rem' }}>
+              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', flex: '1' }}>
+                <MapPin color="#D36777" size={20} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
                 <div>
-                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Location</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>Balotra, Rajasthan</p>
+                  <h4 style={{ fontSize: '0.8rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.2rem', marginTop: 0 }}>Location</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0 }}>Balotra, Rajasthan</p>
                 </div>
               </div>
-              <div style={{ width: '1px', height: '35px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
-              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
-                <Clock color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+              <div style={{ width: '1px', height: '30px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
+              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', flex: '1' }}>
+                <Clock color="#D36777" size={20} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
                 <div>
-                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Timings</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>4:00 PM - 10:00 PM</p>
+                  <h4 style={{ fontSize: '0.8rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.2rem', marginTop: 0 }}>Timings</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0 }}>4:00 PM - 10:00 PM</p>
                 </div>
               </div>
-              <div style={{ width: '1px', height: '35px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
-              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
-                <Calendar color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+              <div style={{ width: '1px', height: '30px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
+              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', flex: '1.2' }}>
+                <Calendar color="#D36777" size={20} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
                 <div>
-                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Open Daily</h4>
-                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>Mon - Sun</p>
+                  <h4 style={{ fontSize: '0.8rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.2rem', marginTop: 0 }}>Open Daily</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9ca3af', margin: 0 }}>Mon - Sun</p>
                 </div>
               </div>
             </div>
 
-            <button style={{ background: '#4a5d4e', color: 'white', padding: '1rem 2.5rem', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}>
-              Get Directions <ArrowRight size={18} strokeWidth={2} />
+            <button style={{ background: '#4a5d4e', color: 'white', padding: '0.9rem 2.2rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}>
+              Get Directions <ArrowRight size={16} strokeWidth={2} />
             </button>
           </div>
 
           {/* Right Side Collage */}
-          <div style={{ flex: '1.2' }}>
+          <div style={{ flex: '1.1' }}>
             <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken' }} />
           </div>
         </div>
