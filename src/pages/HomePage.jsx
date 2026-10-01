@@ -315,7 +315,7 @@ const HomePage = () => {
           pointerEvents: 'none',
           opacity: 0.9
         }}>
-          <img src={premiumLeaf} alt="" style={{ height: '450px', transform: 'scaleY(-1)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '450px' }} />
         </div>
       </section>
 
@@ -330,7 +330,7 @@ const HomePage = () => {
           <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
         <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleX(-1)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
         <div className="container" style={{ 
@@ -408,10 +408,10 @@ const HomePage = () => {
           position: 'relative'
         }}>
           <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleY(-1)' }} />
+            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
           </div>
           <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scale(-1, -1)' }} />
+            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
@@ -437,7 +437,7 @@ const HomePage = () => {
       {/* Why Evora Section */}
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
         <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '300px', transform: 'scaleX(-1)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '300px' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
@@ -524,10 +524,10 @@ const HomePage = () => {
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
         <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleY(-1)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
         <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scale(-1, -1)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
