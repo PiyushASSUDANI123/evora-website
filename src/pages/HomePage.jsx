@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
 import CollabModal from '../components/CollabModal'
 import rightImg from '../assets/hero-right.png'
 import storyRight from '../assets/story-right.png'
