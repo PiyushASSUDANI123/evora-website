@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
 import CollabModal from '../components/CollabModal'
-import rightImg from '../assets/hero-right.png'
+import rightImg from '../assets/hero-right-new.jpg'
 import storyRight from '../assets/story-right.png'
-import visitCollage from '../assets/visit-collage-clean.png'
+import visitCollage from '../assets/visit-collage-new.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
