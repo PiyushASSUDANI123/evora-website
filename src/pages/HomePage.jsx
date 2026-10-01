@@ -4,20 +4,12 @@ import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import leafImg from '../assets/bottom-left-leaf.png'
 import rightImg from '../assets/hero-right.png'
-import menu1 from '../assets/menu-1.png'
-import menu2 from '../assets/menu-2.png'
-import menu3 from '../assets/menu-3.png'
-import menu4 from '../assets/menu-4.png'
 import tlLeaf from '../assets/menu-tl-leaf.png'
 import trLeaf from '../assets/menu-tr-leaf.png'
 import blLeaf from '../assets/menu-bl-leaf.png'
 import brLeaf from '../assets/menu-br-leaf.png'
 import storyRight from '../assets/story-right.png'
 import visitCollage from '../assets/visit-collage-clean.png'
-import newTrLeaf from '../assets/new-tr-leaf.png'
-import newMlLeaf from '../assets/new-ml-leaf.png'
-import newBlLeaf from '../assets/new-bl-leaf.png'
-import newBrLeaf from '../assets/new-br-leaf.png'
 import cleanLeaf from '../assets/clean-leaf.jpg'
 
 // Custom SVGs for the specific icons in the design
@@ -55,22 +47,21 @@ const HomePage = () => {
   // Mocking database fetch for showcase
   useEffect(() => {
     const fetchMenuFromDatabase = async () => {
-      // Simulate API delay
-      // In production, this would be: const response = await fetch('/api/menu'); const data = await response.json();
-      const mockDbData = [
-        { id: 1, img: menu1, title: 'Cold Cocoa', price: '₹60', desc: 'Rich, chilled & creamy', badge: 'Bestseller', badgeType: 'star' },
-        { id: 2, img: menu2, title: 'Coconut Milk', price: '₹50', desc: 'Light, cool & refreshing', badge: 'Customer Favourite', badgeType: 'heart' },
-        { id: 3, img: menu3, title: 'Chatpata Mix', price: '₹50', desc: 'Crunchy, loaded & full of flavour', badge: 'Most Ordered', badgeType: 'flame' },
-        { id: 4, img: menu4, title: 'Fruit Chaat', price: '₹60', desc: 'Fresh, colourful & zesty', badge: 'Fresh & Seasonal', badgeType: 'leaf' },
-      ];
-      setMenuItems(mockDbData);
+      try {
+        const menuRes = await fetch('http://localhost:5001/api/menu');
+        const menuData = await menuRes.json();
+        setMenuItems(menuData);
+      } catch (err) {
+        console.error('Error fetching menu', err);
+      }
 
-      // Simulate fetching packages from database
-      setPackages([
-        { id: 1, name: 'Basic', price: '₹1,499', period: '/ month', isPopular: false, features: ['1 Reel / Week', 'In-Store Shoot', 'Story Mentions', 'Basic Editing'] },
-        { id: 2, name: 'Standard', price: '₹2,499', period: '/ month', isPopular: true, features: ['2 Reels / Week', 'In-Store + Product Shots', 'Story Mentions', 'Custom Captions', 'Priority Scheduling'] },
-        { id: 3, name: 'Pro', price: '₹3,999', period: '/ month', isPopular: false, features: ['3 Reels / Week', 'Creative Concept & Script', 'In-Store + Lifestyle Shoots', 'Story Mentions', 'Priority Support'] },
-      ]);
+      try {
+        const pkgRes = await fetch('http://localhost:5001/api/packages');
+        const pkgData = await pkgRes.json();
+        setPackages(pkgData);
+      } catch (err) {
+        console.error('Error fetching packages', err);
+      }
 
       // Fetch approved reviews from database
       const fetchReviews = async () => {
@@ -503,8 +494,8 @@ const HomePage = () => {
       {/* Our Story Section */}
       <section style={{ padding: '1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Middle Left Leaf */}
-        <div style={{ position: 'absolute', top: '20%', left: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={newMlLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '10%', left: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.6, transform: 'rotate(120deg)' }}>
+          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -544,11 +535,11 @@ const HomePage = () => {
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
         {/* Bottom Leaves */}
-        <div style={{ position: 'absolute', bottom: '20px', left: 0, zIndex: 1, pointerEvents: 'none' }}>
-          <img src={newBlLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', zIndex: 1, pointerEvents: 'none', opacity: 0.8, transform: 'rotate(45deg)' }}>
+          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
         </div>
-        <div style={{ position: 'absolute', bottom: '20px', right: 0, zIndex: 1, pointerEvents: 'none' }}>
-          <img src={newBrLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', zIndex: 1, pointerEvents: 'none', opacity: 0.8, transform: 'rotate(-135deg)' }}>
+          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
