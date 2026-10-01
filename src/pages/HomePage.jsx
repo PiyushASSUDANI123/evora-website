@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import CollabModal from '../components/CollabModal'
 import rightImg from '../assets/hero-right.png'
 import storyRight from '../assets/story-right.png'
 import visitCollage from '../assets/visit-collage-clean.png'
@@ -37,6 +38,9 @@ const HomePage = () => {
   const [newReviewName, setNewReviewName] = useState('');
   const [newReviewRating, setNewReviewRating] = useState(5);
   const [newReviewText, setNewReviewText] = useState('');
+  
+  const [isCollabModalOpen, setIsCollabModalOpen] = useState(false);
+  const [selectedCollabPackage, setSelectedCollabPackage] = useState('');
 
   // Mocking database fetch for showcase
   useEffect(() => {
@@ -195,7 +199,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        <div className="container" style={{ 
+        <div className="container flex-responsive" style={{ 
           padding: '0 4rem',
           maxWidth: '1400px',
           margin: '0 auto',
@@ -350,7 +354,7 @@ const HomePage = () => {
           </div>
 
           {/* Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
+          <div className="menu-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '3rem' }}>
             {menuItems.map((item) => (
               <div key={item.id} style={{ background: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.04)', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ position: 'relative', height: '260px' }}>
@@ -414,7 +418,7 @@ const HomePage = () => {
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
 
 
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
+        <div className="container flex-responsive" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.8', maxWidth: '380px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
@@ -460,7 +464,7 @@ const HomePage = () => {
 
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '2.5rem 0' }}>
+          <div className="flex-responsive" style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '2.5rem 0' }}>
             {/* Absolute Pink Box Background */}
             <div style={{ position: 'absolute', top: 0, bottom: 0, left: '-4rem', right: '-4rem', background: '#FFF4F5', borderRadius: '30px', zIndex: -1 }}></div>
 
@@ -497,7 +501,7 @@ const HomePage = () => {
         
 
 
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+        <div className="container flex-responsive" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.9' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
@@ -554,7 +558,7 @@ const HomePage = () => {
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
 
 
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
+        <div className="container flex-responsive" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.9', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
@@ -568,7 +572,10 @@ const HomePage = () => {
               Evora Balotra collaborates with local creators, influencers and pages to reach more people and share the taste of Balotra. Get high-quality content, regular video features and more with our monthly collaboration packages.
             </p>
             <div>
-              <button style={{ background: '#4a5d4e', color: 'white', padding: '0.9rem 2.2rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}>
+              <button 
+                onClick={() => { setSelectedCollabPackage('Custom'); setIsCollabModalOpen(true); }}
+                style={{ background: '#4a5d4e', color: 'white', padding: '0.9rem 2.2rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}
+              >
                 Collaborate With Us <ArrowRight size={16} strokeWidth={2} />
               </button>
             </div>
@@ -583,7 +590,7 @@ const HomePage = () => {
               </div>
             </div>
             
-            <div style={{ display: 'flex', gap: '1rem', flex: 1 }}>
+            <div className="flex-responsive" style={{ display: 'flex', gap: '1rem', flex: 1 }}>
               {packages.map((pkg) => (
                 <div key={pkg.id} style={{ flex: 1, background: 'white', borderRadius: '15px', padding: '1.5rem', display: 'flex', flexDirection: 'column', position: 'relative' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
@@ -606,7 +613,10 @@ const HomePage = () => {
                     ))}
                   </div>
 
-                  <button style={{ width: '100%', background: pkg.isPopular ? '#4a5d4e' : 'transparent', color: pkg.isPopular ? 'white' : '#4a5d4e', border: '1px solid #4a5d4e', padding: '0.75rem 0', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, marginTop: '1rem', cursor: 'pointer', transition: 'all 0.3s' }}>
+                  <button 
+                    onClick={() => { setSelectedCollabPackage(pkg.name); setIsCollabModalOpen(true); }}
+                    style={{ width: '100%', background: pkg.isPopular ? '#4a5d4e' : 'transparent', color: pkg.isPopular ? 'white' : '#4a5d4e', border: '1px solid #4a5d4e', padding: '0.75rem 0', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, marginTop: '1rem', cursor: 'pointer', transition: 'all 0.3s' }}
+                  >
                     Choose Plan
                   </button>
                 </div>
@@ -618,7 +628,7 @@ const HomePage = () => {
 
       {/* What People Say Section */}
       <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7', position: 'relative' }}>
-        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+        <div className="container flex-responsive" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.9' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
@@ -649,7 +659,7 @@ const HomePage = () => {
           </div>
 
           {/* Right Side Review Cards */}
-          <div style={{ flex: '2', display: 'flex', gap: '1rem' }}>
+          <div className="flex-responsive" style={{ flex: '2', display: 'flex', gap: '1rem' }}>
             {reviews.map((review) => (
               <div 
                 key={review.id} 
@@ -769,6 +779,13 @@ const HomePage = () => {
           </div>
         </div>
       )}
+
+      {/* Collaboration Form Modal */}
+      <CollabModal 
+        isOpen={isCollabModalOpen} 
+        onClose={() => setIsCollabModalOpen(false)} 
+        initialPackage={selectedCollabPackage} 
+      />
     </div>
   )
 }

@@ -209,13 +209,39 @@ button {
   50% { transform: rotate(3deg); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .flex-responsive {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  .flex-responsive > div {
+    flex: 1 1 auto !important;
+    max-width: 100% !important;
+  }
+  .heading-1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+  .heading-2 {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
   .container {
-    padding: 0 1rem;
+    padding: 0 1.5rem !important;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem !important;
   }
   .btn {
     padding: 0.875rem 1.5rem;
     font-size: 0.95rem;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
