@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import premiumLeaf from '../assets/premium-leaf.png'
 import rightImg from '../assets/hero-right.png'
 import storyRight from '../assets/story-right.png'
 import visitCollage from '../assets/visit-collage-clean.png'
@@ -305,18 +304,7 @@ const HomePage = () => {
           </motion.div>
 
         </div>
-        
-        {/* Decorative Leaf Bottom Left */}
-        <div style={{ 
-          position: 'absolute', 
-          bottom: '-30px', 
-          left: '-30px',
-          zIndex: 0, 
-          pointerEvents: 'none',
-          opacity: 0.9
-        }}>
-          <img src={premiumLeaf} alt="" style={{ height: '450px' }} />
-        </div>
+
       </section>
 
       {/* Signature Favourites Section */}
@@ -324,14 +312,7 @@ const HomePage = () => {
         padding: '5rem 0 0 0',
         position: 'relative',
       }}>
-        
-        {/* Corner Leaves */}
-        <div style={{ position: 'absolute', top: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-        </div>
-        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-        </div>
+
 
         <div className="container" style={{ 
           padding: '0 4rem',
@@ -407,12 +388,7 @@ const HomePage = () => {
           paddingBottom: '3rem',
           position: 'relative'
         }}>
-          <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-          </div>
-          <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-          </div>
+
 
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
             {menuStats.map((stat, idx) => (
@@ -436,9 +412,7 @@ const HomePage = () => {
 
       {/* Why Evora Section */}
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '300px' }} />
-        </div>
+
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
@@ -483,9 +457,7 @@ const HomePage = () => {
 
       {/* Our Story Section */}
       <section style={{ padding: '1rem 0', background: '#FCFAF7', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '10%', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.85 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-        </div>
+
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '2.5rem 0' }}>
@@ -523,12 +495,7 @@ const HomePage = () => {
       {/* Visit Us Section */}
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
-        <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-        </div>
-        <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
-        </div>
+
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
@@ -585,9 +552,7 @@ const HomePage = () => {
 
       {/* Collaboration & Promotion Section */}
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none' }}>
-          <img src={premiumLeaf} alt="" style={{ height: '300px', opacity: 0.8 }} />
-        </div>
+
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
