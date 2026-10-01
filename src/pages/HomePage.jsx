@@ -18,6 +18,7 @@ import newTrLeaf from '../assets/new-tr-leaf.png'
 import newMlLeaf from '../assets/new-ml-leaf.png'
 import newBlLeaf from '../assets/new-bl-leaf.png'
 import newBrLeaf from '../assets/new-br-leaf.png'
+import collabTlLeaf from '../assets/collab-tl-leaf.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -43,6 +44,8 @@ const HomePage = () => {
   const [packages, setPackages] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
+  const [showAddReview, setShowAddReview] = useState(false);
+  const [promotionalBanner, setPromotionalBanner] = useState(null);
 
   // Mocking database fetch for showcase
   useEffect(() => {
@@ -70,9 +73,35 @@ const HomePage = () => {
         { id: 2, name: 'Rohan M.', initial: 'R', stars: 5, excerpt: '"Chatpata mix is my go-to snack. Perfect taste and always fresh."', fullText: "The chatpata mix is my absolute favorite. It has the perfect balance of spices, and it's always served fresh. Great place to hang out with friends!" },
         { id: 3, name: 'Pooja D.', initial: 'P', stars: 5, excerpt: '"Their fruit chaat is amazing! Fresh, healthy and super delicious."', fullText: "Highly recommend the fruit chaat. It's incredibly fresh, very healthy, and they use a great variety of fruits. The staff is also very friendly and welcoming." },
       ]);
+
+      // Simulate fetching active promotional banner from database
+      const fetchBanner = () => {
+        const mockDbBanner = {
+          id: 1,
+          title: 'Festive Special Offer!',
+          desc: 'Get 20% off on all chatpata mixes this week. Show this at the stall.',
+          isActive: true
+        };
+        // Only show if active and not dismissed in this session
+        if (mockDbBanner.isActive && !sessionStorage.getItem('evoraBannerDismissed')) {
+          setPromotionalBanner(mockDbBanner);
+        }
+      };
+      fetchBanner();
     };
     fetchMenuFromDatabase();
   }, []);
+
+  const closeBanner = () => {
+    setPromotionalBanner(null);
+    sessionStorage.setItem('evoraBannerDismissed', 'true');
+  };
+
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you! Your review has been submitted to the database and is pending admin approval.");
+    setShowAddReview(false);
+  };
 
   const getBadgeIcon = (type) => {
     switch(type) {
@@ -528,6 +557,11 @@ const HomePage = () => {
 
       {/* Collaboration & Promotion Section */}
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
+        {/* Top Left Leaf */}
+        <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={collabTlLeaf} alt="" style={{ height: '150px', mixBlendMode: 'darken' }} />
+        </div>
+
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.9', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -607,12 +641,17 @@ const HomePage = () => {
               Your kind words keep us going. Here's what our customers and creators say about Evora.
             </p>
             
-            <div style={{ display: 'flex', gap: '0.8rem' }}>
-              <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #d1d5db', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4b5563', transition: 'all 0.2s' }}>
-                <ChevronLeft size={18} />
-              </button>
-              <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #4a5d4e', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4a5d4e', transition: 'all 0.2s' }}>
-                <ChevronRight size={18} />
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #d1d5db', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4b5563', transition: 'all 0.2s' }}>
+                  <ChevronLeft size={18} />
+                </button>
+                <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #4a5d4e', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4a5d4e', transition: 'all 0.2s' }}>
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+              <button onClick={() => setShowAddReview(true)} style={{ background: 'transparent', color: '#D36777', padding: '0.5rem 1rem', borderRadius: '20px', border: '1px solid #D36777', fontSize: '0.8rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.3s' }}>
+                + Write a Review
               </button>
             </div>
           </div>
@@ -679,6 +718,61 @@ const HomePage = () => {
             <div style={{ textAlign: 'center', borderTop: '1px solid #e5e7eb', paddingTop: '1.5rem' }}>
               <span style={{ fontSize: '0.8rem', color: '#9ca3af', display: 'block' }}>Verified Customer Review</span>
               <span style={{ fontSize: '0.7rem', color: '#d1d5db', display: 'block', marginTop: '0.5rem' }}>Fetched from Database via Backend API</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Review Modal */}
+      {showAddReview && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(5px)' }} onClick={() => setShowAddReview(false)}>
+          <div style={{ background: 'white', padding: '2.5rem', borderRadius: '20px', maxWidth: '400px', width: '90%', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setShowAddReview(false)} style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: '#f3f4f6', borderRadius: '50%', padding: '0.5rem', border: 'none', cursor: 'pointer', color: '#4b5563', display: 'flex' }}>
+              <X size={18} />
+            </button>
+            <h3 style={{ fontSize: '1.4rem', color: '#374151', margin: '0 0 1.5rem 0', fontFamily: "'Playfair Display', serif" }}>Share Your Experience</h3>
+            
+            <form onSubmit={handleReviewSubmit}>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Your Name</label>
+                <input type="text" required style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none' }} placeholder="e.g. Rahul S." />
+              </div>
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Rating</label>
+                <div style={{ display: 'flex', gap: '5px' }}>
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} size={24} fill="#f59e0b" color="#f59e0b" style={{ cursor: 'pointer' }} />
+                  ))}
+                </div>
+              </div>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', color: '#4b5563', marginBottom: '0.4rem', fontWeight: 500 }}>Your Review</label>
+                <textarea required rows="4" style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid #d1d5db', outline: 'none', resize: 'none' }} placeholder="What did you like the most?"></textarea>
+              </div>
+              <button type="submit" style={{ width: '100%', background: '#4a5d4e', color: 'white', border: 'none', padding: '1rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
+                Submit Review
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Promotional Banner Modal */}
+      {promotionalBanner && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.7)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(5px)' }} onClick={closeBanner}>
+          <div style={{ position: 'relative', maxWidth: '500px', width: '90%', background: 'white', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 25px 50px rgba(0,0,0,0.25)' }} onClick={e => e.stopPropagation()}>
+            <button onClick={closeBanner} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.8)', borderRadius: '50%', padding: '0.5rem', border: 'none', cursor: 'pointer', color: '#4b5563', display: 'flex', zIndex: 10 }}>
+              <X size={20} />
+            </button>
+            <div style={{ background: '#FFF4F5', padding: '3.5rem 2.5rem', textAlign: 'center', position: 'relative' }}>
+              <Leaf size={40} color="#D36777" style={{ position: 'absolute', top: '-15px', left: '-15px', opacity: 0.2, transform: 'rotate(-45deg)' }} />
+              <h2 style={{ fontSize: '2.5rem', color: '#3e5c46', fontFamily: "'Playfair Display', serif", margin: '0 0 1rem 0' }}>{promotionalBanner.title}</h2>
+              <p style={{ color: '#6b7280', fontSize: '1.05rem', marginBottom: '2rem', lineHeight: 1.5 }}>
+                {promotionalBanner.desc}
+              </p>
+              <button onClick={closeBanner} style={{ background: '#D36777', color: 'white', border: 'none', padding: '0.9rem 2.5rem', borderRadius: '30px', fontWeight: 600, cursor: 'pointer', fontSize: '1rem', transition: 'all 0.3s' }}>
+                Awesome, thanks!
+              </button>
             </div>
           </div>
         </div>
