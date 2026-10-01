@@ -1,8 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Heart, Instagram, Youtube, Leaf } from 'lucide-react'
-import ebMonogram from '../assets/eb-monogram.png'
-import footerRightArt from '../assets/footer-right-art.png'
+import { Heart, Leaf } from 'lucide-react'
+import footerLeaf from '../assets/new-tr-leaf.png'
+
+const InstagramIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+)
+
+const YoutubeIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+  </svg>
+)
 
 const Footer = () => {
   return (
@@ -18,8 +32,13 @@ const Footer = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3rem', gap: '2rem' }}>
           
           {/* Col 1: Monogram */}
-          <div style={{ flex: '0.8' }}>
-            <img src={ebMonogram} alt="EB Logo" style={{ height: '100px', objectFit: 'contain' }} />
+          <div style={{ flex: '0.8', position: 'relative', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'relative', width: '80px', height: '80px', fontFamily: "'Playfair Display', serif" }}>
+              <span style={{ position: 'absolute', left: 0, top: 0, fontSize: '5rem', color: '#3e5c46', lineHeight: 1, fontWeight: 500 }}>E</span>
+              <span style={{ position: 'absolute', right: 0, bottom: '-10px', fontSize: '4.5rem', color: '#D36777', lineHeight: 1, fontWeight: 500, zIndex: 2 }}>B</span>
+              {/* Optional tiny decorative leaf for the monogram */}
+              <Leaf size={14} color="#3e5c46" style={{ position: 'absolute', left: '20px', top: '45px', transform: 'rotate(-45deg)', zIndex: 1 }} />
+            </div>
           </div>
 
           {/* Col 2: Brand Info */}
@@ -60,10 +79,10 @@ const Footer = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 <a href="#" style={{ width: '30px', height: '30px', borderRadius: '5px', background: '#D36777', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                  <Instagram size={16} />
+                  <InstagramIcon />
                 </a>
                 <a href="#" style={{ width: '30px', height: '30px', borderRadius: '5px', background: '#D36777', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
-                  <Youtube size={16} />
+                  <YoutubeIcon />
                 </a>
               </div>
               <span style={{ fontSize: '0.9rem', color: '#6b7280' }}>@evora.balotra</span>
@@ -74,8 +93,23 @@ const Footer = () => {
           </div>
 
           {/* Col 5: Right Art */}
-          <div style={{ flex: '1.5', display: 'flex', justifyContent: 'flex-end', marginTop: '-2rem' }}>
-            <img src={footerRightArt} alt="Good Vibes" style={{ height: '180px', objectFit: 'contain', mixBlendMode: 'darken' }} />
+          <div style={{ flex: '1.5', position: 'relative', display: 'flex', justifyContent: 'flex-end', marginTop: '-1rem' }}>
+            <div style={{ position: 'absolute', right: '-80px', top: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.6 }}>
+              <img src={footerLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+            </div>
+            <div style={{ position: 'relative', zIndex: 1, transform: 'rotate(-15deg)', fontFamily: "'Caveat', cursive", fontSize: '2.5rem', color: '#4b5563', lineHeight: 1.1, textAlign: 'center', paddingRight: '2rem' }}>
+              <div>Good Food</div>
+              <div>Good Vibes</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center' }}>
+                Balotra
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D36777" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(15deg)' }}>
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <svg style={{ position: 'absolute', bottom: '-5px', right: '10px' }} width="80" height="20" viewBox="0 0 80 20" fill="none">
+                <path d="M2 15 Q 40 0, 78 5" stroke="#D36777" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </div>
           </div>
         </div>
 
