@@ -5,7 +5,7 @@ import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, 
 import CollabModal from '../components/CollabModal'
 import rightImg from '../assets/hero-right.png'
 import storyRight from '../assets/story-right-new.jpg'
-import heroBg from '../assets/hero-bg.png'
+import collageMain from '../assets/collage-main.png'
 import menu1 from '../assets/menu-1.png'
 import menu4 from '../assets/menu-4.png'
 
@@ -559,7 +559,7 @@ const HomePage = () => {
           {/* Right Side Collage Built with CSS Grid */}
           <div className="visit-collage-grid" style={{ flex: '1.15', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '400px' }}>
             <div style={{ gridRow: '1 / -1', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
-              <img src={heroBg} alt="Cafe Interior" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={collageMain} alt="Cafe Experience" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
               <img src={menu1} alt="Cold Coffee" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
