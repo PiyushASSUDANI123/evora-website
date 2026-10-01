@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
 import CollabModal from '../components/CollabModal'
-import rightImg from '../assets/hero-right.png'
+import rightImg from '../assets/hero-right-new-custom.png'
 import storyRight from '../assets/story-right-new.jpg'
 import heroBg from '../assets/hero-bg.png'
 import menu1 from '../assets/menu-1.png'
@@ -490,9 +490,16 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Right Side Composite Image (Popping Out via scale) */}
-            <div style={{ flex: '1.2', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', position: 'relative' }}>
-              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', transform: 'scale(1.25) translateX(-0.5rem)' }} />
+            {/* Right Side Composite Image (Fading in smoothly) */}
+            <div style={{ flex: '1.5', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', position: 'relative' }}>
+              <div style={{
+                width: '100%',
+                height: '100%',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 100%)',
+              }}>
+                <img src={storyRight} alt="Our Story" style={{ width: '110%', height: 'auto', objectFit: 'cover', mixBlendMode: 'multiply', transform: 'translateX(5%)' }} />
+              </div>
             </div>
           </div>
         </div>
