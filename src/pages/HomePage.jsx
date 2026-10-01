@@ -309,16 +309,13 @@ const HomePage = () => {
         {/* Decorative Leaf Bottom Left */}
         <div style={{ 
           position: 'absolute', 
-          bottom: 0, 
-          left: 0,
+          bottom: '-30px', 
+          left: '-30px',
           zIndex: 0, 
           pointerEvents: 'none',
-          width: '30vw',
-          height: '50vh',
-          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          opacity: 0.9
         }}>
-          <img src={premiumLeaf} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom left', display: 'block', transform: 'scale(1.2)' }} />
+          <img src={premiumLeaf} alt="" style={{ height: '450px', transform: 'scaleY(-1)' }} />
         </div>
       </section>
 
@@ -329,11 +326,11 @@ const HomePage = () => {
       }}>
         
         {/* Corner Leaves */}
-        <div style={{ position: 'absolute', top: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(135deg)', opacity: 0.9 }}>
+        <div style={{ position: 'absolute', top: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
           <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
-        <div style={{ position: 'absolute', top: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(-45deg)', opacity: 0.9 }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
+        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleX(-1)' }} />
         </div>
 
         <div className="container" style={{ 
@@ -410,12 +407,11 @@ const HomePage = () => {
           paddingBottom: '3rem',
           position: 'relative'
         }}>
-          {/* Bottom Leaves */}
-          <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(45deg)', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
+          <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
+            <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleY(-1)' }} />
           </div>
-          <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(-135deg)', opacity: 0.9 }}>
-            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
+          <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
+            <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scale(-1, -1)' }} />
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
@@ -440,9 +436,8 @@ const HomePage = () => {
 
       {/* Why Evora Section */}
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
-        {/* Top Right Leaf */}
-        <div style={{ position: 'absolute', top: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(-45deg)' }}>
-          <img src={premiumLeaf} alt="" style={{ height: '300px' }} />
+        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '300px', transform: 'scaleX(-1)' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
@@ -488,8 +483,7 @@ const HomePage = () => {
 
       {/* Our Story Section */}
       <section style={{ padding: '1rem 0', background: '#FCFAF7', position: 'relative' }}>
-        {/* Middle Left Leaf */}
-        <div style={{ position: 'absolute', top: '10%', left: '-80px', zIndex: 0, pointerEvents: 'none', opacity: 0.85, transform: 'rotate(120deg)' }}>
+        <div style={{ position: 'absolute', top: '10%', left: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.85 }}>
           <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
@@ -529,12 +523,11 @@ const HomePage = () => {
       {/* Visit Us Section */}
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
-        {/* Bottom Leaves */}
-        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', zIndex: 1, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(45deg)' }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
+        <div style={{ position: 'absolute', bottom: '-30px', left: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scaleY(-1)' }} />
         </div>
-        <div style={{ position: 'absolute', bottom: '-80px', right: '-80px', zIndex: 1, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(-135deg)' }}>
-          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
+        <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', zIndex: 1, pointerEvents: 'none', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px', transform: 'scale(-1, -1)' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
@@ -592,8 +585,7 @@ const HomePage = () => {
 
       {/* Collaboration & Promotion Section */}
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
-        {/* Premium Generated Leaf (Top Left) */}
-        <div style={{ position: 'absolute', top: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(90deg)' }}>
+        <div style={{ position: 'absolute', top: '-30px', left: '-30px', zIndex: 0, pointerEvents: 'none' }}>
           <img src={premiumLeaf} alt="" style={{ height: '300px', opacity: 0.8 }} />
         </div>
 
