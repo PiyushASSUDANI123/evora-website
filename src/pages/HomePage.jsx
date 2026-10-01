@@ -4,10 +4,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import premiumLeaf from '../assets/premium-leaf.png'
 import rightImg from '../assets/hero-right.png'
-import tlLeaf from '../assets/menu-tl-leaf.png'
-import trLeaf from '../assets/menu-tr-leaf.png'
-import blLeaf from '../assets/menu-bl-leaf.png'
-import brLeaf from '../assets/menu-br-leaf.png'
 import storyRight from '../assets/story-right.png'
 import visitCollage from '../assets/visit-collage-clean.png'
 
@@ -333,11 +329,11 @@ const HomePage = () => {
       }}>
         
         {/* Corner Leaves */}
-        <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={tlLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(135deg)', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
-        <div style={{ position: 'absolute', top: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={trLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(-45deg)', opacity: 0.9 }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
         <div className="container" style={{ 
@@ -415,11 +411,11 @@ const HomePage = () => {
           position: 'relative'
         }}>
           {/* Bottom Leaves */}
-          <div style={{ position: 'absolute', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-            <img src={blLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
+          <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(45deg)', opacity: 0.9 }}>
+            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
           </div>
-          <div style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
-            <img src={brLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
+          <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(-135deg)', opacity: 0.9 }}>
+            <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
