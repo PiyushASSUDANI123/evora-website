@@ -321,17 +321,17 @@ const HomePage = () => {
 
         {/* Bottom Pink Area & Stats */}
         <div style={{ 
-          background: 'linear-gradient(to bottom, transparent, #FFF4F5)', 
+          background: 'linear-gradient(to bottom, transparent 0%, #FFF4F5 70%, #FCFAF7 100%)', 
           paddingTop: '1rem', 
           paddingBottom: '3rem',
           position: 'relative'
         }}>
           {/* Bottom Leaves */}
           <div style={{ position: 'absolute', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-            <img src={blLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken' }} />
+            <img src={blLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
           </div>
           <div style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
-            <img src={brLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken' }} />
+            <img src={brLeaf} alt="" style={{ height: '350px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }} />
           </div>
 
           <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
@@ -410,7 +410,7 @@ const HomePage = () => {
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ background: '#FFF4F5', borderRadius: '25px', display: 'flex', alignItems: 'center', position: 'relative', marginLeft: '-4rem' }}>
+          <div style={{ background: '#FFF4F5', borderRadius: '25px', display: 'flex', alignItems: 'center', position: 'relative', marginLeft: '-4rem', marginRight: '-4rem' }}>
             {/* Left Side */}
             <div style={{ flex: '1', padding: '3.5rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
@@ -433,7 +433,7 @@ const HomePage = () => {
             
             {/* Right Side Composite Image (Popping Out) */}
             <div style={{ flex: '1.2', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-              <img src={storyRight} alt="Our Story" style={{ width: '110%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginTop: '-4rem', marginBottom: '-2rem', marginRight: '-2rem' }} />
+              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginTop: '-4rem', marginBottom: '-2rem' }} />
             </div>
           </div>
         </div>
@@ -443,11 +443,11 @@ const HomePage = () => {
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
         {/* Bottom Leaves */}
-        <div style={{ position: 'absolute', bottom: '-20px', left: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={blLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken', transform: 'translate(-20%, 20%)' }} />
+        <div style={{ position: 'absolute', bottom: '0px', left: 0, zIndex: 1, pointerEvents: 'none' }}>
+          <img src={blLeaf} alt="" style={{ height: '200px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to top, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 80%, transparent 100%)' }} />
         </div>
-        <div style={{ position: 'absolute', bottom: '-20px', right: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={brLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken', transform: 'translate(20%, 20%)' }} />
+        <div style={{ position: 'absolute', bottom: '0px', right: 0, zIndex: 1, pointerEvents: 'none' }}>
+          <img src={brLeaf} alt="" style={{ height: '200px', mixBlendMode: 'darken', maskImage: 'linear-gradient(to top, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to top, black 80%, transparent 100%)' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'flex-start', position: 'relative', zIndex: 2 }}>
@@ -498,7 +498,7 @@ const HomePage = () => {
 
           {/* Right Side Collage */}
           <div style={{ flex: '1.1' }}>
-            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken' }} />
+            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', clipPath: 'inset(0 0 0 30px)' }} />
           </div>
         </div>
       </section>
