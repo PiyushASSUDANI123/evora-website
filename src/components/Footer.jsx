@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Heart, Leaf } from 'lucide-react'
-import footerLeaf from '../assets/new-tr-leaf.png'
 
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -94,9 +93,6 @@ const Footer = () => {
 
           {/* Col 5: Right Art */}
           <div style={{ flex: '1.5', position: 'relative', display: 'flex', justifyContent: 'flex-end', marginTop: '-1rem' }}>
-            <div style={{ position: 'absolute', right: '-80px', top: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.6 }}>
-              <img src={footerLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
-            </div>
             <div style={{ position: 'relative', zIndex: 1, transform: 'rotate(-15deg)', fontFamily: "'Caveat', cursive", fontSize: '2.5rem', color: '#4b5563', lineHeight: 1.1, textAlign: 'center', paddingRight: '2rem' }}>
               <div>Good Food</div>
               <div>Good Vibes</div>

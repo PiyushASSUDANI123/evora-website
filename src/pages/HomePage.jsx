@@ -18,7 +18,6 @@ import newTrLeaf from '../assets/new-tr-leaf.png'
 import newMlLeaf from '../assets/new-ml-leaf.png'
 import newBlLeaf from '../assets/new-bl-leaf.png'
 import newBrLeaf from '../assets/new-br-leaf.png'
-import collabTlLeaf from '../assets/collab-tl-leaf.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -557,11 +556,6 @@ const HomePage = () => {
 
       {/* Collaboration & Promotion Section */}
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
-        {/* Top Left Leaf */}
-        <div style={{ position: 'absolute', top: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={collabTlLeaf} alt="" style={{ height: '150px', mixBlendMode: 'darken' }} />
-        </div>
-
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
           {/* Left Side */}
           <div style={{ flex: '0.9', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
