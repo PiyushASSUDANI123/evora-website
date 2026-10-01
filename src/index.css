@@ -230,6 +230,23 @@ button {
   .menu-grid {
     grid-template-columns: 1fr 1fr !important;
   }
+  .hero-right-img-container {
+    width: 100% !important;
+    opacity: 0.15 !important;
+    z-index: 0 !important;
+  }
+  .hero-right-img-container > div {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+  .visit-collage-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    height: auto !important;
+  }
+  .visit-collage-grid > div {
+    height: 250px;
+  }
 }
 
 @media (max-width: 600px) {

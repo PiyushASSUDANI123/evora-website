@@ -5,7 +5,9 @@ import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, 
 import CollabModal from '../components/CollabModal'
 import rightImg from '../assets/hero-right-new.jpg'
 import storyRight from '../assets/story-right.png'
-import visitCollage from '../assets/visit-collage-clean.png'
+import heroBg from '../assets/hero-bg.png'
+import menu1 from '../assets/menu-1.png'
+import menu4 from '../assets/menu-4.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -178,24 +180,22 @@ const HomePage = () => {
       }}>
         
         {/* Right Side Image */}
-        <div style={{
+        <div className="hero-right-img-container" style={{
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '50%',
+          width: '55%',
           height: '100%',
           zIndex: 1,
           pointerEvents: 'none',
-          maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
         }}>
           <div style={{
             width: '100%',
             height: '100%',
-            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
           }}>
-            <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', mixBlendMode: 'darken' }} />
+            <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'left center', mixBlendMode: 'multiply' }} />
           </div>
         </div>
 
@@ -547,9 +547,17 @@ const HomePage = () => {
             </button>
           </div>
 
-          {/* Right Side Collage */}
-          <div style={{ flex: '1.15', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />
+          {/* Right Side Collage Built with CSS Grid */}
+          <div className="visit-collage-grid" style={{ flex: '1.15', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gridTemplateRows: '1fr 1fr', gap: '1rem', height: '400px' }}>
+            <div style={{ gridRow: '1 / -1', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
+              <img src={heroBg} alt="Cafe Interior" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
+              <img src={menu1} alt="Cold Coffee" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
+              <img src={menu4} alt="Fruit Chaat" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           </div>
         </div>
       </section>
