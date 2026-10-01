@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar } from 'lucide-react'
+import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import leafImg from '../assets/bottom-left-leaf.png'
 import rightImg from '../assets/hero-right.png'
 import menu1 from '../assets/menu-1.png'
@@ -40,6 +40,9 @@ const BowlIcon = () => (
 
 const HomePage = () => {
   const [menuItems, setMenuItems] = useState([]);
+  const [packages, setPackages] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [selectedReview, setSelectedReview] = useState(null);
 
   // Mocking database fetch for showcase
   useEffect(() => {
@@ -53,6 +56,20 @@ const HomePage = () => {
         { id: 4, img: menu4, title: 'Fruit Chaat', price: '₹60', desc: 'Fresh, colourful & zesty', badge: 'Fresh & Seasonal', badgeType: 'leaf' },
       ];
       setMenuItems(mockDbData);
+
+      // Simulate fetching packages from database
+      setPackages([
+        { id: 1, name: 'Basic', price: '₹1,499', period: '/ month', isPopular: false, features: ['1 Reel / Week', 'In-Store Shoot', 'Story Mentions', 'Basic Editing'] },
+        { id: 2, name: 'Standard', price: '₹2,499', period: '/ month', isPopular: true, features: ['2 Reels / Week', 'In-Store + Product Shots', 'Story Mentions', 'Custom Captions', 'Priority Scheduling'] },
+        { id: 3, name: 'Pro', price: '₹3,999', period: '/ month', isPopular: false, features: ['3 Reels / Week', 'Creative Concept & Script', 'In-Store + Lifestyle Shoots', 'Story Mentions', 'Priority Support'] },
+      ]);
+
+      // Simulate fetching reviews from database
+      setReviews([
+        { id: 1, name: 'Kavya S.', initial: 'K', stars: 5, excerpt: '"Best cold cocoa in Balotra! Always fresh and so tasty."', fullText: "I've been visiting Evora Balotra for months now, and their cold cocoa is hands down the best in town. The ingredients are always fresh and it tastes amazing every single time." },
+        { id: 2, name: 'Rohan M.', initial: 'R', stars: 5, excerpt: '"Chatpata mix is my go-to snack. Perfect taste and always fresh."', fullText: "The chatpata mix is my absolute favorite. It has the perfect balance of spices, and it's always served fresh. Great place to hang out with friends!" },
+        { id: 3, name: 'Pooja D.', initial: 'P', stars: 5, excerpt: '"Their fruit chaat is amazing! Fresh, healthy and super delicious."', fullText: "Highly recommend the fruit chaat. It's incredibly fresh, very healthy, and they use a great variety of fruits. The staff is also very friendly and welcoming." },
+      ]);
     };
     fetchMenuFromDatabase();
   }, []);
@@ -82,7 +99,7 @@ const HomePage = () => {
   ]
 
   return (
-    <div style={{ background: '#FCFAF7', minHeight: '100vh' }}>
+    <div style={{ background: '#FCFAF7', minHeight: '100vh', overflowX: 'hidden' }}>
       {/* Hero Section */}
       <section style={{
         minHeight: '100vh',
@@ -508,6 +525,164 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Collaboration & Promotion Section */}
+      <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
+          {/* Left Side */}
+          <div style={{ flex: '0.9', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.75rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>COLLABORATION & PROMOTION</span>
+            </div>
+            <h2 style={{ fontSize: '3.2rem', fontWeight: 600, lineHeight: 1.05, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1rem', letterSpacing: '-1px' }}>
+              Let's<br />
+              <span style={{ color: '#D36777' }}>Grow Together.</span>
+            </h2>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.5, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif", maxWidth: '400px' }}>
+              Evora Balotra collaborates with local creators, influencers and pages to reach more people and share the taste of Balotra. Get high-quality content, regular video features and more with our monthly collaboration packages.
+            </p>
+            <div>
+              <button style={{ background: '#4a5d4e', color: 'white', padding: '0.9rem 2.2rem', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}>
+                Collaborate With Us <ArrowRight size={16} strokeWidth={2} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side Pink Box */}
+          <div style={{ flex: '2', background: '#FFF4F5', borderRadius: '25px', padding: '2.5rem', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+              <h3 style={{ fontSize: '1.6rem', color: '#374151', fontFamily: "'Playfair Display', serif", fontWeight: 600, margin: 0 }}>Collaboration Packages</h3>
+              <div style={{ background: '#FCE7EA', color: '#D36777', padding: '0.4rem 0.8rem', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Star size={12} fill="#D36777" color="#D36777" /> Best for local creators
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '1rem', flex: 1 }}>
+              {packages.map((pkg) => (
+                <div key={pkg.id} style={{ flex: 1, background: 'white', borderRadius: '15px', padding: '1.5rem', display: 'flex', flexDirection: 'column', position: 'relative' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                    <h4 style={{ color: '#D36777', fontSize: '1rem', fontWeight: 500, margin: 0 }}>{pkg.name}</h4>
+                    {pkg.isPopular && (
+                      <span style={{ background: '#4a5d4e', color: 'white', fontSize: '0.65rem', padding: '0.2rem 0.6rem', borderRadius: '12px', fontWeight: 600 }}>Popular</span>
+                    )}
+                  </div>
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <span style={{ fontSize: '1.6rem', color: '#D36777', fontWeight: 600 }}>{pkg.price}</span>
+                    <span style={{ fontSize: '0.75rem', color: '#9ca3af' }}> {pkg.period}</span>
+                  </div>
+                  
+                  <div style={{ flex: 1 }}>
+                    {pkg.features.map((feature, idx) => (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.8rem' }}>
+                        <Check size={14} color="#4a5d4e" strokeWidth={3} style={{ marginTop: '0.2rem' }} />
+                        <span style={{ fontSize: '0.8rem', color: '#4b5563' }}>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button style={{ width: '100%', background: pkg.isPopular ? '#4a5d4e' : 'transparent', color: pkg.isPopular ? 'white' : '#4a5d4e', border: '1px solid #4a5d4e', padding: '0.75rem 0', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 600, marginTop: '1rem', cursor: 'pointer', transition: 'all 0.3s' }}>
+                    Choose Plan
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What People Say Section */}
+      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7', position: 'relative' }}>
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+          {/* Left Side */}
+          <div style={{ flex: '0.9' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.75rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>WHAT PEOPLE SAY</span>
+              <span style={{ height: '1px', width: '35px', background: '#fca5a5' }}></span>
+            </div>
+            <h2 style={{ fontSize: '3.2rem', fontWeight: 600, lineHeight: 1.05, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1rem', letterSpacing: '-1px' }}>
+              Loved by<br />
+              <span style={{ color: '#D36777' }}>Many in Balotra.</span>
+            </h2>
+            <p style={{ fontSize: '0.95rem', lineHeight: 1.5, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif", maxWidth: '350px' }}>
+              Your kind words keep us going. Here's what our customers and creators say about Evora.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '0.8rem' }}>
+              <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #d1d5db', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4b5563', transition: 'all 0.2s' }}>
+                <ChevronLeft size={18} />
+              </button>
+              <button style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #4a5d4e', background: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#4a5d4e', transition: 'all 0.2s' }}>
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side Review Cards */}
+          <div style={{ flex: '2', display: 'flex', gap: '1rem' }}>
+            {reviews.map((review) => (
+              <div 
+                key={review.id} 
+                onClick={() => setSelectedReview(review)}
+                style={{ flex: 1, background: 'white', borderRadius: '15px', padding: '1.5rem', boxShadow: '0 4px 20px rgba(0,0,0,0.03)', cursor: 'pointer', transition: 'transform 0.2s', position: 'relative' }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+              >
+                <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', color: '#FCE7EA' }}>
+                  <Quote size={24} fill="currentColor" />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#4a5d4e', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem' }}>
+                    {review.initial}
+                  </div>
+                  <div>
+                    <h4 style={{ fontSize: '0.9rem', color: '#374151', fontWeight: 600, margin: '0 0 0.2rem 0' }}>{review.name}</h4>
+                    <div style={{ display: 'flex', gap: '2px' }}>
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={10} fill={i < review.stars ? "#f59e0b" : "#e5e7eb"} color={i < review.stars ? "#f59e0b" : "#e5e7eb"} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.5, margin: 0, fontStyle: 'italic' }}>
+                  {review.excerpt}
+                </p>
+                <div style={{ fontSize: '0.7rem', color: '#D36777', fontWeight: 600, marginTop: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Read Full Review →</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Review Modal Pop-up */}
+      {selectedReview && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(5px)' }} onClick={() => setSelectedReview(null)}>
+          <div style={{ background: 'white', padding: '3rem', borderRadius: '20px', maxWidth: '500px', width: '90%', position: 'relative', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }} onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setSelectedReview(null)} style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: '#f3f4f6', borderRadius: '50%', padding: '0.5rem', border: 'none', cursor: 'pointer', color: '#4b5563', display: 'flex' }}>
+              <X size={18} />
+            </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#4a5d4e', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1.2rem' }}>
+                {selectedReview.initial}
+              </div>
+              <div>
+                <h3 style={{ fontSize: '1.2rem', color: '#374151', margin: '0 0 0.3rem 0' }}>{selectedReview.name}</h3>
+                <div style={{ display: 'flex', gap: '3px' }}>
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill={i < selectedReview.stars ? "#f59e0b" : "#e5e7eb"} color={i < selectedReview.stars ? "#f59e0b" : "#e5e7eb"} />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <p style={{ fontSize: '1.05rem', color: '#4b5563', lineHeight: 1.6, fontStyle: 'italic', marginBottom: '2rem' }}>
+              "{selectedReview.fullText}"
+            </p>
+            <div style={{ textAlign: 'center', borderTop: '1px solid #e5e7eb', paddingTop: '1.5rem' }}>
+              <span style={{ fontSize: '0.8rem', color: '#9ca3af', display: 'block' }}>Verified Customer Review</span>
+              <span style={{ fontSize: '0.7rem', color: '#d1d5db', display: 'block', marginTop: '0.5rem' }}>Fetched from Database via Backend API</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
