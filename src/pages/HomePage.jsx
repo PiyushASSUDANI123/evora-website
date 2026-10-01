@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
 import CollabModal from '../components/CollabModal'
-import rightImg from '../assets/hero-right-new.jpg'
-import storyRight from '../assets/story-right.png'
+import rightImg from '../assets/hero-right.png'
+import storyRight from '../assets/story-right-new.jpg'
 import heroBg from '../assets/hero-bg.png'
 import menu1 from '../assets/menu-1.png'
 import menu4 from '../assets/menu-4.png'
@@ -184,18 +184,20 @@ const HomePage = () => {
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '55%',
+          width: '50%',
           height: '100%',
           zIndex: 1,
           pointerEvents: 'none',
+          maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
         }}>
           <div style={{
             width: '100%',
             height: '100%',
-            maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
           }}>
-            <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'left center', mixBlendMode: 'multiply' }} />
+            <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', mixBlendMode: 'darken' }} />
           </div>
         </div>
 
