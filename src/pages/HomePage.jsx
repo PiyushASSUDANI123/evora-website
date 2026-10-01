@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar, Check, Quote, X, ChevronLeft, ChevronRight } from 'lucide-react'
-import leafImg from '../assets/bottom-left-leaf.png'
+import premiumLeaf from '../assets/premium-leaf.png'
 import rightImg from '../assets/hero-right.png'
 import tlLeaf from '../assets/menu-tl-leaf.png'
 import trLeaf from '../assets/menu-tr-leaf.png'
@@ -10,7 +10,6 @@ import blLeaf from '../assets/menu-bl-leaf.png'
 import brLeaf from '../assets/menu-br-leaf.png'
 import storyRight from '../assets/story-right.png'
 import visitCollage from '../assets/visit-collage-clean.png'
-import cleanLeaf from '../assets/clean-leaf.jpg'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -323,7 +322,7 @@ const HomePage = () => {
           maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
         }}>
-          <img src={leafImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom left', display: 'block', mixBlendMode: 'darken' }} />
+          <img src={premiumLeaf} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom left', display: 'block', transform: 'scale(1.2)' }} />
         </div>
       </section>
 
@@ -446,8 +445,8 @@ const HomePage = () => {
       {/* Why Evora Section */}
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Top Right Leaf */}
-        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.7, transform: 'rotate(-45deg)' }}>
-          <img src={cleanLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(-45deg)' }}>
+          <img src={premiumLeaf} alt="" style={{ height: '300px' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
@@ -494,8 +493,8 @@ const HomePage = () => {
       {/* Our Story Section */}
       <section style={{ padding: '1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Middle Left Leaf */}
-        <div style={{ position: 'absolute', top: '10%', left: '-50px', zIndex: 0, pointerEvents: 'none', opacity: 0.6, transform: 'rotate(120deg)' }}>
-          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '10%', left: '-80px', zIndex: 0, pointerEvents: 'none', opacity: 0.85, transform: 'rotate(120deg)' }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -535,11 +534,11 @@ const HomePage = () => {
       <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
         {/* Bottom Leaves */}
-        <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', zIndex: 1, pointerEvents: 'none', opacity: 0.8, transform: 'rotate(45deg)' }}>
-          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', zIndex: 1, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(45deg)' }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
-        <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', zIndex: 1, pointerEvents: 'none', opacity: 0.8, transform: 'rotate(-135deg)' }}>
-          <img src={cleanLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', right: '-80px', zIndex: 1, pointerEvents: 'none', opacity: 0.9, transform: 'rotate(-135deg)' }}>
+          <img src={premiumLeaf} alt="" style={{ height: '350px' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', gap: '5rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
@@ -597,9 +596,9 @@ const HomePage = () => {
 
       {/* Collaboration & Promotion Section */}
       <section style={{ padding: '4rem 0', background: '#FCFAF7', position: 'relative' }}>
-        {/* Clean Generated Leaf (Top Left) */}
+        {/* Premium Generated Leaf (Top Left) */}
         <div style={{ position: 'absolute', top: '-50px', left: '-50px', zIndex: 0, pointerEvents: 'none', transform: 'rotate(90deg)' }}>
-          <img src={cleanLeaf} alt="" style={{ height: '200px', mixBlendMode: 'darken', opacity: 0.8 }} />
+          <img src={premiumLeaf} alt="" style={{ height: '300px', opacity: 0.8 }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '3rem', alignItems: 'stretch', position: 'relative', zIndex: 2 }}>
