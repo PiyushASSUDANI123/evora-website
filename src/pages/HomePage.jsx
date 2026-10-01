@@ -101,7 +101,14 @@ const HomePage = () => {
           maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
           WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 50%, black 100%)',
         }}>
-          <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', mixBlendMode: 'darken' }} />
+          <div style={{
+            width: '100%',
+            height: '100%',
+            maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          }}>
+            <img src={rightImg} alt="Evora Offerings" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right center', mixBlendMode: 'darken' }} />
+          </div>
         </div>
 
         <div className="container" style={{ 
@@ -221,21 +228,13 @@ const HomePage = () => {
           left: 0,
           zIndex: 0, 
           pointerEvents: 'none',
+          width: '30vw',
+          height: '50vh',
+          maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
         }}>
-          <img src={leafImg} alt="" style={{ height: '50vh', maxWidth: '30vw', objectFit: 'contain', objectPosition: 'bottom left', display: 'block', mixBlendMode: 'darken' }} />
+          <img src={leafImg} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'bottom left', display: 'block', mixBlendMode: 'darken' }} />
         </div>
-
-        {/* Seamless Blend Overlay to fix hard line */}
-        <div style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '150px',
-          background: 'linear-gradient(to top, #FCFAF7 0%, transparent 100%)',
-          zIndex: 1,
-          pointerEvents: 'none'
-        }}></div>
       </section>
 
       {/* Signature Favourites Section */}
