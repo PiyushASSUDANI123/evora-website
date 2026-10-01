@@ -446,8 +446,8 @@ const HomePage = () => {
       {/* Why Evora Section */}
       <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Top Right Leaf */}
-        <div style={{ position: 'absolute', top: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <img src={newTrLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken' }} />
+        <div style={{ position: 'absolute', top: '-30px', right: '-30px', zIndex: 0, pointerEvents: 'none', opacity: 0.7, transform: 'rotate(-45deg)' }}>
+          <img src={cleanLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '5rem', position: 'relative', zIndex: 2 }}>
