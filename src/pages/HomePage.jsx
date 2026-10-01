@@ -75,7 +75,7 @@ const HomePage = () => {
       // Fetch approved reviews from database
       const fetchReviews = async () => {
         try {
-          const res = await fetch('http://localhost:5000/api/reviews/approved');
+          const res = await fetch('http://localhost:5001/api/reviews/approved');
           const data = await res.json();
           // Map to match frontend structure if needed, or use directly
           const formattedReviews = data.map(r => ({
@@ -128,7 +128,7 @@ const HomePage = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/reviews', {
+      const res = await fetch('http://localhost:5001/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
