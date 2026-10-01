@@ -358,7 +358,7 @@ const HomePage = () => {
       </section>
 
       {/* Why Evora Section */}
-      <section style={{ padding: '4rem 0 2rem 0', background: '#FCFAF7', position: 'relative' }}>
+      <section style={{ padding: '3rem 0 1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Top Right Leaf */}
         <div style={{ position: 'absolute', top: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
           <img src={newTrLeaf} alt="" style={{ height: '220px', mixBlendMode: 'darken' }} />
@@ -406,14 +406,14 @@ const HomePage = () => {
       </section>
 
       {/* Our Story Section */}
-      <section style={{ padding: '4rem 0 3rem 0', background: '#FCFAF7', position: 'relative' }}>
+      <section style={{ padding: '1rem 0', background: '#FCFAF7', position: 'relative' }}>
         {/* Middle Left Leaf */}
-        <div style={{ position: 'absolute', top: '30%', left: 0, zIndex: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: '20%', left: 0, zIndex: 0, pointerEvents: 'none' }}>
           <img src={newMlLeaf} alt="" style={{ height: '250px', mixBlendMode: 'darken' }} />
         </div>
 
         <div className="container" style={{ padding: '0 4rem', maxWidth: '1300px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '3.5rem 0' }}>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', padding: '2.5rem 0' }}>
             {/* Absolute Pink Box Background */}
             <div style={{ position: 'absolute', top: 0, bottom: 0, left: '-4rem', right: '-4rem', background: '#FFF4F5', borderRadius: '30px', zIndex: -1 }}></div>
 
@@ -427,26 +427,26 @@ const HomePage = () => {
                 A Little Place<br />
                 <span style={{ color: '#D36777' }}>For Good Moments.</span>
               </h2>
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2rem', fontFamily: "'Playfair Display', serif", maxWidth: '400px' }}>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '1.5rem', fontFamily: "'Playfair Display', serif", maxWidth: '400px' }}>
                 Evora Balotra started with a simple idea — to bring refreshing drinks and flavourful snacks to our city. From chilled cocoa and coconut milk to chatpata bowls and fresh fruit chaat, everything here is made to add a little joy to your day.
               </p>
               <div>
-                <Link to="/about" style={{ background: 'transparent', border: '1px solid #3e5c46', color: '#3e5c46', padding: '0.9rem 2.2rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s' }}>
+                <Link to="/about" style={{ background: 'transparent', border: '1px solid #3e5c46', color: '#3e5c46', padding: '0.8rem 2rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '0.9rem', textDecoration: 'none', transition: 'all 0.3s' }}>
                   Read More <ArrowRight size={16} strokeWidth={2} />
                 </Link>
               </div>
             </div>
             
-            {/* Right Side Composite Image (Popping Out) */}
+            {/* Right Side Composite Image (Popping Out via scale) */}
             <div style={{ flex: '1.2', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', position: 'relative' }}>
-              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginTop: '-6.5rem', marginBottom: '-5rem' }} />
+              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', transform: 'scale(1.25) translateX(-0.5rem)' }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Visit Us Section */}
-      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7', position: 'relative' }}>
+      <section style={{ padding: '1rem 0 5rem 0', background: '#FCFAF7', position: 'relative' }}>
         
         {/* Bottom Leaves */}
         <div style={{ position: 'absolute', bottom: '20px', left: 0, zIndex: 1, pointerEvents: 'none' }}>
@@ -503,8 +503,8 @@ const HomePage = () => {
           </div>
 
           {/* Right Side Collage */}
-          <div style={{ flex: '1.1' }}>
-            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken' }} />
+          <div style={{ flex: '1.15' }}>
+            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '110%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginLeft: '-1rem' }} />
           </div>
         </div>
       </section>
