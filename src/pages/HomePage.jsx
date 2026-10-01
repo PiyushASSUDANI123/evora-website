@@ -5,7 +5,7 @@ import { ArrowRight, MapPin, Heart, Star, Flame, Clock, Calendar, Check, Quote, 
 import CollabModal from '../components/CollabModal'
 import rightImg from '../assets/hero-right-new.jpg'
 import storyRight from '../assets/story-right.png'
-import visitCollage from '../assets/visit-collage-new.png'
+import visitCollage from '../assets/visit-collage-clean.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -548,8 +548,8 @@ const HomePage = () => {
           </div>
 
           {/* Right Side Collage */}
-          <div style={{ flex: '1.15' }}>
-            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '110%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken', marginLeft: '-1rem' }} />
+          <div style={{ flex: '1.15', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
         </div>
       </section>
