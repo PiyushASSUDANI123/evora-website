@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Leaf, Heart, Star, Flame } from 'lucide-react'
+import { ArrowRight, MapPin, Leaf, Heart, Star, Flame, Clock, Calendar } from 'lucide-react'
 import leafImg from '../assets/bottom-left-leaf.png'
 import rightImg from '../assets/hero-right.png'
 import menu1 from '../assets/menu-1.png'
@@ -12,6 +12,8 @@ import tlLeaf from '../assets/menu-tl-leaf.png'
 import trLeaf from '../assets/menu-tr-leaf.png'
 import blLeaf from '../assets/menu-bl-leaf.png'
 import brLeaf from '../assets/menu-br-leaf.png'
+import storyRight from '../assets/story-right.png'
+import visitCollage from '../assets/visit-collage.png'
 
 // Custom SVGs for the specific icons in the design
 const CupIcon = () => (
@@ -350,6 +352,145 @@ const HomePage = () => {
           </div>
         </div>
 
+      </section>
+
+      {/* Why Evora Section */}
+      <section style={{ padding: '6rem 0', background: '#FCFAF7', position: 'relative' }}>
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '4rem' }}>
+          {/* Left Side */}
+          <div style={{ flex: '1', maxWidth: '500px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>WHY EVORA</span>
+              <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+            </div>
+            <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+              More Than<br />
+              <span style={{ color: '#D36777' }}>Just Snacks.</span>
+            </h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif" }}>
+              It's about fresh ingredients, refreshing flavours and those little happy moments — every single day.
+            </p>
+            <Link to="/about" style={{ background: '#4a5d4e', color: 'white', padding: '1rem 2.5rem', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', textDecoration: 'none', transition: 'all 0.3s' }}>
+              Know Our Story <ArrowRight size={18} strokeWidth={2} />
+            </Link>
+          </div>
+          
+          {/* Right Side Icons */}
+          <div style={{ flex: '1.5', display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+            {[
+              { icon: <Leaf size={24} strokeWidth={1} color="#4b5563"/>, title: 'Fresh Ingredients', sub: 'Quality ingredients, made fresh daily.' },
+              { icon: <CupIcon />, title: 'Refreshing Beverages', sub: 'Chilled cocoa, coconut milk and more.' },
+              { icon: <BowlIcon />, title: 'Chatpata Flavours', sub: 'Loaded with taste, just the way you like it.' },
+              { icon: <Heart size={24} strokeWidth={1} color="#4b5563"/>, title: 'Made with Love', sub: 'A local favourite in Balotra.' }
+            ].map((item, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: '1' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', border: '1px solid #e5e7eb', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <div style={{ transform: 'scale(1.3)', display: 'flex', color: '#4b5563' }}>
+                    {item.icon}
+                  </div>
+                </div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#4b5563', fontFamily: "'Playfair Display', serif", marginBottom: '0.5rem' }}>{item.title}</h4>
+                <p style={{ fontSize: '0.85rem', color: '#9ca3af', lineHeight: 1.5, padding: '0 0.2rem' }}>{item.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7' }}>
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto' }}>
+          <div style={{ background: '#FFF4F5', borderRadius: '30px', padding: '0', display: 'flex', alignItems: 'stretch', overflow: 'hidden' }}>
+            {/* Left Side */}
+            <div style={{ flex: '1', padding: '5rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>OUR STORY</span>
+                <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+              </div>
+              <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+                A Little Place<br />
+                <span style={{ color: '#D36777' }}>For Good Moments.</span>
+              </h2>
+              <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '2.5rem', fontFamily: "'Playfair Display', serif", maxWidth: '450px' }}>
+                Evora Balotra started with a simple idea — to bring refreshing drinks and flavourful snacks to our city. From chilled cocoa and coconut milk to chatpata bowls and fresh fruit chaat, everything here is made to add a little joy to your day.
+              </p>
+              <div>
+                <Link to="/about" style={{ background: 'transparent', border: '1px solid #3e5c46', color: '#3e5c46', padding: '1rem 2.5rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', textDecoration: 'none', transition: 'all 0.3s' }}>
+                  Read More <ArrowRight size={18} strokeWidth={2} />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right Side Composite Image */}
+            <div style={{ flex: '1.2' }}>
+              <img src={storyRight} alt="Our Story" style={{ width: '100%', height: '100%', objectFit: 'cover', mixBlendMode: 'darken' }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visit Us Section */}
+      <section style={{ padding: '2rem 0 6rem 0', background: '#FCFAF7', position: 'relative' }}>
+        
+        {/* Decorative Leaves */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={blLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        </div>
+        <div style={{ position: 'absolute', bottom: 0, right: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <img src={brLeaf} alt="" style={{ height: '300px', mixBlendMode: 'darken' }} />
+        </div>
+
+        <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto', display: 'flex', gap: '6rem', alignItems: 'center', position: 'relative', zIndex: 2 }}>
+          {/* Left Side */}
+          <div style={{ flex: '1' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.8rem', letterSpacing: '2px', color: '#8b8b9a', fontWeight: 600, textTransform: 'uppercase' }}>VISIT US</span>
+              <span style={{ height: '1px', width: '40px', background: '#fca5a5' }}></span>
+            </div>
+            <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: 1.1, color: '#3e5c46', fontFamily: "'Playfair Display', serif", marginBottom: '1.5rem' }}>
+              Come Say Hi<br />
+              <span style={{ color: '#D36777' }}>At Our Stall.</span>
+            </h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#6b7280', marginBottom: '3rem', fontFamily: "'Playfair Display', serif" }}>
+              Enjoy your favourite chilled drinks and chatpata snacks at Evora Balotra.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '3rem' }}>
+              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
+                <MapPin color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Location</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>Balotra, Rajasthan</p>
+                </div>
+              </div>
+              <div style={{ width: '1px', height: '35px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
+              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
+                <Clock color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Timings</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>4:00 PM - 10:00 PM</p>
+                </div>
+              </div>
+              <div style={{ width: '1px', height: '35px', background: '#e5e7eb', marginTop: '0.2rem' }}></div>
+              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', flex: '1' }}>
+                <Calendar color="#D36777" size={22} strokeWidth={1.5} style={{ marginTop: '0.1rem' }}/>
+                <div>
+                  <h4 style={{ fontSize: '0.85rem', color: '#4b5563', fontWeight: 600, marginBottom: '0.25rem' }}>Open Daily</h4>
+                  <p style={{ fontSize: '0.85rem', color: '#9ca3af', margin: 0 }}>Mon - Sun</p>
+                </div>
+              </div>
+            </div>
+
+            <button style={{ background: '#4a5d4e', color: 'white', padding: '1rem 2.5rem', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500, fontSize: '1rem', border: 'none', cursor: 'pointer', transition: 'all 0.3s' }}>
+              Get Directions <ArrowRight size={18} strokeWidth={2} />
+            </button>
+          </div>
+
+          {/* Right Side Collage */}
+          <div style={{ flex: '1.2' }}>
+            <img src={visitCollage} alt="Visit Us Collage" style={{ width: '100%', height: 'auto', objectFit: 'contain', mixBlendMode: 'darken' }} />
+          </div>
+        </div>
       </section>
     </div>
   )
