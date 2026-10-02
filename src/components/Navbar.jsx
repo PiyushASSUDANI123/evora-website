@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, Home, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import logo from '../assets/right-logo.png'
 
 const Navbar = () => {
@@ -36,11 +36,11 @@ const Navbar = () => {
       }}>
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img src={logo} alt="Evora Balotra" style={{ height: '65px', objectFit: 'contain', mixBlendMode: 'darken' }} />
+          <img src={logo} alt="Evora Balotra" style={{ height: '65px', objectFit: 'contain', mixBlendMode: 'multiply' }} />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav style={{ 
+        <nav className="desktop-only" style={{ 
           display: 'flex', 
           gap: '3rem', 
           alignItems: 'center',
@@ -72,46 +72,54 @@ const Navbar = () => {
           })}
         </nav>
 
-        {/* Order Now Button */}
-        <div>
-          <a 
-            href="/admin" 
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.65rem 1.5rem',
-              fontSize: '1.05rem',
-              fontWeight: '500',
-              color: '#3e5c46',
-              background: 'transparent',
-              border: '1px solid #3e5c46',
-              borderRadius: '30px',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = '#3e5c46'
-              e.target.style.color = 'white'
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'transparent'
-              e.target.style.color = '#3e5c46'
-            }}
-          >
-            Order Now <ArrowRight size={18} strokeWidth={1.5} />
-          </a>
-        </div>
+        {/* Order Now Button - Removed as requested */}
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer' }}
-          className="mobile-menu-btn"
+          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+          className="mobile-only mobile-menu-btn"
         >
-          {isOpen ? <Menu size={24} color="#3e5c46" /> : <Home size={24} color="#3e5c46" />}
+          {isOpen ? <X size={28} color="#3e5c46" /> : <Menu size={28} color="#3e5c46" />}
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          width: '100%',
+          background: '#FFF4F5',
+          boxShadow: '0 10px 20px rgba(0,0,0,0.05)',
+          padding: '2rem 0',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1.5rem',
+          zIndex: 99
+        }}>
+          {navLinks.map(link => {
+            const isActive = location.pathname === link.path || (link.path === '/' && location.pathname === '')
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                style={{
+                  fontWeight: 600,
+                  color: isActive ? '#D36777' : '#3e5c46',
+                  fontSize: '1.25rem',
+                  textDecoration: 'none',
+                }}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </div>
+      )}
     </header>
   )
 }

@@ -82,6 +82,14 @@ button {
   position: relative;
 }
 
+.desktop-only {
+  /* Default to block, but can be flex if needed */
+}
+
+.mobile-only {
+  display: none !important;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -249,6 +257,56 @@ button {
   }
 }
 
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+}
+
+.stats-divider {
+  width: 1px;
+  height: 35px;
+  background: #e5e7eb;
+  margin-left: 1.5rem;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  .stats-container {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    text-align: center;
+  }
+  .stats-divider {
+    width: 100px !important;
+    height: 1px !important;
+    margin: 1.5rem auto !important;
+  }
+  .features-grid {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .features-grid > div {
+    flex: 0 0 45% !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 0 1rem !important;
@@ -259,6 +317,9 @@ button {
   }
   .menu-grid {
     grid-template-columns: 1fr !important;
+  }
+  .features-grid > div {
+    flex: 0 0 100% !important;
   }
 }
 

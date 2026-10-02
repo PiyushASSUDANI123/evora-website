@@ -48,7 +48,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchMenuFromDatabase = async () => {
       try {
-        const menuRes = await fetch('http://localhost:5001/api/menu');
+        const menuRes = await fetch('https://evora.piyushassudani.in/api/menu');
         const menuData = await menuRes.json();
         setMenuItems(menuData);
       } catch (err) {
@@ -56,7 +56,7 @@ const HomePage = () => {
       }
 
       try {
-        const pkgRes = await fetch('http://localhost:5001/api/packages');
+        const pkgRes = await fetch('https://evora.piyushassudani.in/api/packages');
         const pkgData = await pkgRes.json();
         setPackages(pkgData);
       } catch (err) {
@@ -66,7 +66,7 @@ const HomePage = () => {
       // Fetch approved reviews from database
       const fetchReviews = async () => {
         try {
-          const res = await fetch('http://localhost:5001/api/reviews/approved');
+          const res = await fetch('https://evora.piyushassudani.in/api/reviews/approved');
           const data = await res.json();
           // Map to match frontend structure if needed, or use directly
           const formattedReviews = data.map(r => ({
@@ -119,7 +119,7 @@ const HomePage = () => {
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5001/api/reviews', {
+      const res = await fetch('https://evora.piyushassudani.in/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -271,7 +271,7 @@ const HomePage = () => {
                 transition: 'all 0.3s',
                 boxShadow: '0 4px 15px rgba(62, 92, 70, 0.2)'
               }}>
-                Explore Menu <ArrowRight size={18} strokeWidth={2} />
+                Order Now <ArrowRight size={18} strokeWidth={2} />
               </Link>
               <Link to="/visit" style={{ 
                 background: 'transparent',
@@ -396,20 +396,22 @@ const HomePage = () => {
         }}>
 
 
-          <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
+          <div className="container stats-container" style={{ position: 'relative', zIndex: 2 }}>
             {menuStats.map((stat, idx) => (
-              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ color: '#3e5c46', display: 'flex' }}>
-                  {stat.icon}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#6b7280', letterSpacing: '1px', lineHeight: 1.3 }}>{stat.title}</span>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#6b7280', letterSpacing: '1px', lineHeight: 1.3 }}>{stat.subtitle}</span>
+              <React.Fragment key={idx}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center' }}>
+                  <div style={{ color: '#3e5c46', display: 'flex' }}>
+                    {stat.icon}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#6b7280', letterSpacing: '1px', lineHeight: 1.3 }}>{stat.title}</span>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#6b7280', letterSpacing: '1px', lineHeight: 1.3 }}>{stat.subtitle}</span>
+                  </div>
                 </div>
                 {idx < menuStats.length - 1 && (
-                  <div style={{ width: '1px', height: '35px', background: '#e5e7eb', marginLeft: '1.5rem' }}></div>
+                  <div className="stats-divider"></div>
                 )}
-              </div>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -440,7 +442,7 @@ const HomePage = () => {
           </div>
           
           {/* Right Side Icons */}
-          <div style={{ flex: '1.5', display: 'flex', justifyContent: 'space-between', gap: '1.5rem' }}>
+          <div className="features-grid" style={{ flex: '1.5' }}>
             {[
               { icon: <Leaf size={28} strokeWidth={1} color="#4b5563"/>, title: 'Fresh Ingredients', sub: 'Quality ingredients, made fresh daily.' },
               { icon: <CupIcon />, title: 'Refreshing Beverages', sub: 'Chilled cocoa, coconut milk and more.' },

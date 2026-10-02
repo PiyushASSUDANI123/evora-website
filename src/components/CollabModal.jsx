@@ -18,7 +18,7 @@ export default function CollabModal({ isOpen, onClose, initialPackage }) {
     e.preventDefault();
     setStatus('submitting');
     try {
-      const res = await fetch('http://localhost:5001/api/collabs', {
+      const res = await fetch('https://evora.piyushassudani.in/api/collabs', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

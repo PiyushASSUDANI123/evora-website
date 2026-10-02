@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Heart, Leaf } from 'lucide-react'
-import cleanLeaf from '../assets/clean-leaf.jpg'
+import cleanLeaf from '../assets/clean-leaf.png'
 
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="container" style={{ padding: '0 4rem', maxWidth: '1400px', margin: '0 auto' }}>
         
         {/* Top Main Section */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3rem', gap: '2rem' }}>
+        <div className="flex-responsive" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '3rem', gap: '2rem' }}>
           
           {/* Col 1: Monogram */}
           <div style={{ flex: '0.8', position: 'relative', height: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
